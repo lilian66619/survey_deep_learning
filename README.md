@@ -1,23 +1,17 @@
-# 小组互评问卷系统
+# 小组互评系统（GitHub版）
 
 ## 功能
 
+- GitHub Pages 部署
 - 在线问卷
-- Firebase 数据库存储
-- 自动记录提交时间
+- 自动提交到 GitHub Issues
+- 教师后台
+- 导出 CSV / Excel
 - 手机扫码填写
-- GitHub Pages 免费部署
-- Firebase 后台可导出 CSV/Excel
 
 ---
 
-# 第一步：创建 Firebase
-
-打开：
-
-https://firebase.google.com
-
-## 创建项目
+# 第一步：创建 GitHub 仓库
 
 例如：
 
@@ -25,63 +19,68 @@ group-survey
 
 ---
 
-# 第二步：启用 Firestore Database
+# 第二步：上传所有文件
 
-进入：
-
-Build → Firestore Database
-
-点击：
-
-Create Database
-
-选择：
-
-Start in test mode
-
----
-
-# 第三步：获取 Firebase 配置
-
-Project Settings → General → Your Apps
-
-选择 Web App
-
-复制 firebaseConfig
-
-替换 firebase.js 中内容
-
----
-
-# 第四步：部署到 GitHub Pages
-
-上传所有文件：
+包括：
 
 - index.html
 - style.css
+- config.js
 - app.js
-- firebase.js
+- export.html
+- export.js
 
-到 GitHub 仓库
+---
 
-开启：
+# 第三步：创建 GitHub Token
+
+打开：
+
+https://github.com/settings/tokens
+
+创建：
+
+Classic Token
+
+权限：
+
+repo
+
+---
+
+# 第四步：修改 config.js
+
+填写：
+
+YOUR_GITHUB_USERNAME
+
+YOUR_GITHUB_TOKEN
+
+---
+
+# 第五步：开启 GitHub Pages
 
 Settings → Pages
 
 Deploy from branch
 
-即可获得网址。
+main / root
 
 ---
 
-# 第五步：导出 Excel
+# 学生填写网址
 
-Firestore → survey_results
+https://用户名.github.io/group-survey/
 
-点击：
+---
 
-Export JSON
+# 教师后台
 
-或使用 Firebase Extension 导出 CSV。
+https://用户名.github.io/group-survey/export.html
 
-也可以接 Google Sheets。
+---
+
+# 数据后台
+
+GitHub 仓库 → Issues
+

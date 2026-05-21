@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>导出后台</title>
+
+  <style>
+    body{
+      font-family:Arial;
+      padding:40px;
+    }
+
+    button{
+      padding:15px 25px;
+      font-size:18px;
+      cursor:pointer;
+    }
+
+    pre{
+      margin-top:20px;
+      background:#f4f4f4;
+      padding:20px;
+    }
+  </style>
+</head>
+<body>
+
+<h1>教师后台</h1>
+
+<button onclick="exportCSV()">导出 CSV</button>
+
+<pre id="result"></pre>
+
+<script src="config.js"></script>
+<script src="export.js"></script>
+
+</body>
+</html>

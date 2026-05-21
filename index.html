@@ -2,15 +2,12 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>小组互评问卷</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>小组互评系统</title>
+
   <link rel="stylesheet" href="style.css">
 
-  <!-- Firebase SDK -->
-  <script type="module" src="firebase.js"></script>
-  <script type="module" src="app.js" defer></script>
 </head>
-
 <body>
 
 <div class="container">
@@ -23,6 +20,7 @@
       <h2>基础信息</h2>
 
       <label>你是第几组</label>
+
       <select id="group" required>
         <option value="">请选择</option>
         <option>第1组</option>
@@ -36,7 +34,7 @@
       </select>
 
       <label>你的姓名</label>
-      <input type="text" id="name" required placeholder="请输入姓名">
+      <input type="text" id="name" required>
     </div>
 
     <div class="section">
@@ -58,6 +56,9 @@
   <div id="successMessage"></div>
 
 </div>
+
+<script src="config.js"></script>
+<script src="app.js"></script>
 
 </body>
 </html>
