@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>小组互评问卷</title>
+<style>
+    body{
+        font-family: "PingFang SC","Microsoft YaHei",sans-serif;
+        background:#f5f7fb;
+        margin:0;
+        padding:40px;
+    }
+
+    .container{
+        max-width:900px;
+        margin:auto;
+        background:#fff;
+        padding:35px;
+        border-radius:18px;
+        box-shadow:0 6px 20px rgba(0,0,0,0.08);
+    }
+
+    h1{
+        text-align:center;
+        margin-bottom:35px;
+        color:#222;
+    }
+
+    .section{
+        margin-bottom:35px;
+    }
+
+    .section-title{
+        font-size:20px;
+        font-weight:bold;
+        margin-bottom:20px;
+        color:#333;
+        border-left:5px solid #4f7cff;
+        padding-left:10px;
+    }
+
+    label{
+        display:block;
+        margin:15px 0 8px;
+        font-weight:500;
+        color:#444;
+    }
+
+    input[type="text"],
+    select{
+        width:100%;
+        padding:12px;
+        border:1px solid #dcdfe6;
+        border-radius:10px;
+        font-size:15px;
+        box-sizing:border-box;
+    }
+
+    .slider-box{
+        margin-bottom:22px;
+        padding:15px;
+        background:#f9fbff;
+        border-radius:12px;
+    }
+
+    .score-row{
+        display:flex;
+        align-items:center;
+        gap:15px;
+    }
+
+    input[type="range"]{
+        flex:1;
+    }
+
+    .score-value{
+        width:55px;
+        text-align:center;
+        font-weight:bold;
+        color:#1f5eff;
+        font-size:16px;
+    }
+
+    button{
+        width:100%;
+        padding:16px;
+        border:none;
+        border-radius:12px;
+        background:#4f7cff;
+        color:white;
+        font-size:17px;
+        cursor:pointer;
+        transition:0.2s;
+    }
+
+    button:hover{
+        background:#2f63ff;
+    }
+
+    .note{
+        color:#888;
+        font-size:13px;
+        margin-top:5px;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h1>小组互评问卷</h1>
+
+    <div class="section">
+        <div class="section-title">基础信息</div>
+
+        <label>你是第几组</label>
+        <select>
+            <option>请选择</option>
+            <option>第1组</option>
+            <option>第2组</option>
+            <option>第3组</option>
+            <option>第4组</option>
+            <option>第5组</option>
+            <option>第6组</option>
+            <option>第7组</option>
+            <option>第8组</option>
+        </select>
+
+        <label>你的姓名</label>
+        <input type="text" placeholder="请输入姓名">
+    </div>
+
+    <div class="section">
+        <div class="section-title">本组成员打分（1-100）</div>
+
+        <div class="slider-box">
+            <label>自评</label>
+            <div class="score-row">
+                <input type="range" min="1" max="100" value="80"
+                       oninput="this.nextElementSibling.innerText=this.value">
+                <div class="score-value">80</div>
+            </div>
+        </div>
+
+        <div class="slider-box">
+            <label>组员1</label>
+            <div class="score-row">
+                <input type="range" min="1" max="100" value="80"
+                       oninput="this.nextElementSibling.innerText=this.value">
+                <div class="score-value">80</div>
+            </div>
+        </div>
+
+        <div class="slider-box">
+            <label>组员2</label>
+            <div class="score-row">
+                <input type="range" min="1" max="100" value="80"
+                       oninput="this.nextElementSibling.innerText=this.value">
+                <div class="score-value">80</div>
+            </div>
+        </div>
+
+        <div class="slider-box">
+            <label>组员3（非必填）</label>
+            <div class="score-row">
+                <input type="range" min="1" max="100" value="80"
+                       oninput="this.nextElementSibling.innerText=this.value">
+                <div class="score-value">80</div>
+            </div>
+        </div>
+
+        <div class="slider-box">
+            <label>组员4（非必填）</label>
+            <div class="score-row">
+                <input type="range" min="1" max="100" value="80"
+                       oninput="this.nextElementSibling.innerText=this.value">
+                <div class="score-value">80</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">小组打分（1-100）</div>
+
+        <script>
+            const groups = [1,2,3,4,5,6,7,8];
+        </script>
+
+        <div id="groupScores"></div>
+    </div>
+
+    <button type="submit">提交问卷</button>
+</div>
+
+<script>
+const container = document.getElementById("groupScores");
+
+for(let i=1;i<=8;i++){
+    container.innerHTML += `
+        <div class="slider-box">
+            <label>第${i}组</label>
+            <div class="score-row">
+                <input type="range" min="1" max="100" value="80"
+                    oninput="this.nextElementSibling.innerText=this.value">
+                <div class="score-value">80</div>
+            </div>
+        </div>
+    `;
+}
+</script>
+
+</body>
+</html>
